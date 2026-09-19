@@ -17,13 +17,8 @@ DEBUG = os.environ.get("DJANGO_DEBUG", "False").lower() == "true"
 
 
 # Render-এর সকল ডোমেন ও সাবডোমেন সমর্থন করার জন্য
-ALLOWED_HOSTS = [
-    'dream-marriage-media.onrender.com',
-    '.onrender.com',
-    'localhost',
-    '127.0.0.1',
-    '*'
-]
+ALLOWED_HOSTS = ['*']
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 
 # Application definition
