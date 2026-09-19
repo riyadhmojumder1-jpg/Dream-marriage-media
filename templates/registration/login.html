@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>লগইন | Marriage Media</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Noto Serif Bengali", "SolaimanLipi", serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #fffdf7, #f9f1dc);
+            color: #4a3820;
+        }
+
+        /* Navbar */
+        .navbar {
+            height: 90px;
+            background: #ffffff;
+            border-bottom: 1px solid #e3c46b;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+        }
+
+        .logo {
+            font-family: Georgia, serif;
+            font-size: 32px;
+            font-weight: bold;
+            color: #b8860b;
+            text-decoration: none;
+        }
+
+        .home-link {
+            text-decoration: none;
+            color: #6b542d;
+            font-size: 20px;
+        }
+
+        .home-link:hover {
+            color: #b8860b;
+        }
+
+        /* Login Area */
+        .login-section {
+            min-height: calc(100vh - 90px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 20px;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 480px;
+            background: #ffffff;
+            padding: 45px;
+            border-radius: 22px;
+            border: 1px solid #ead28b;
+            box-shadow: 0 15px 45px rgba(139, 105, 20, 0.15);
+            text-align: center;
+        }
+
+        .icon {
+            width: 75px;
+            height: 75px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: #fff7df;
+            border: 1px solid #e2c56e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 36px;
+        }
+
+        .login-card h1 {
+            color: #a87508;
+            font-size: 34px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #806d4b;
+            font-size: 17px;
+            margin-bottom: 32px;
+        }
+
+        /* Form */
+        .form-group {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #5c4725;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #d9bd67;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+            background: #fffdf8;
+        }
+
+        .form-group input:focus {
+            border-color: #b8860b;
+            box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.12);
+        }
+
+        /* Login Button */
+        .login-button {
+            width: 100%;
+            border: none;
+            padding: 15px;
+            margin-top: 8px;
+            border-radius: 30px;
+            background: linear-gradient(90deg, #b8860b, #d4af37);
+            color: white;
+            font-size: 19px;
+            font-family: inherit;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(184, 134, 11, 0.25);
+        }
+
+        .login-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(184, 134, 11, 0.35);
+        }
+
+        /* Links */
+        .register-text {
+            margin-top: 25px;
+            color: #806d4b;
+            font-size: 16px;
+        }
+
+        .register-link {
+            color: #b8860b;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .register-link:hover {
+            text-decoration: underline;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 18px;
+            color: #806d4b;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        .back-home:hover {
+            color: #b8860b;
+        }
+
+        /* Error */
+        .error-message {
+            background: #fff1f1;
+            border: 1px solid #e8aaaa;
+            color: #a33a3a;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 18px;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .navbar {
+                padding: 0 20px;
+                height: 75px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .home-link {
+                font-size: 16px;
+            }
+
+            .login-card {
+                padding: 30px 22px;
+            }
+
+            .login-card h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+
+        <a href="/" class="logo">
+            Marriage Media
+        </a>
+
+        <a href="/" class="home-link">
+            🏠 হোম
+        </a>
+
+    </header>
+
+
+    <!-- Login -->
+    <section class="login-section">
+
+        <div class="login-card">
+
+            <div class="icon">
+                🔐
+            </div>
+
+            <h1>লগইন করুন</h1>
+
+            <p class="subtitle">
+                আপনার Marriage Media অ্যাকাউন্টে প্রবেশ করুন
+            </p>
+
+
+            {% if form.errors %}
+                <div class="error-message">
+                    ব্যবহারকারীর নাম অথবা পাসওয়ার্ড সঠিক নয়।
+                </div>
+            {% endif %}
+
+
+            <form method="post">
+
+                {% csrf_token %}
+
+                <div class="form-group">
+
+                    <label for="id_username">
+                        📱 ইউজারনেম
+                    </label>
+
+                    <input
+                        type="text"
+                        name="username"
+                        id="id_username"
+                        placeholder="আপনার ইউজারনেম লিখুন"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="id_password">
+                        🔑 পাসওয়ার্ড
+                    </label>
+
+                    <input
+                        type="password"
+                        name="password"
+                        id="id_password"
+                        placeholder="আপনার পাসওয়ার্ড লিখুন"
+                        required
+                    >
+
+                </div>
+
+
+                <button type="submit" class="login-button">
+                    🔐 লগইন করুন
+                </button>
+
+            </form>
+
+
+            <p class="register-text">
+                এখনও অ্যাকাউন্ট নেই?
+                <a href="#" class="register-link">
+                    ফ্রি রেজিস্ট্রেশন করুন
+                </a>
+            </p>
+
+            <a href="/" class="back-home">
+                ← হোম পেজে ফিরে যান
+            </a>
+
+        </div>
+
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,947 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Marriage Media | আপনার জীবনসঙ্গী খুঁজুন</title>
+
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Serif+Bengali:wght@400;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+        .message {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 15px 20px;
+    border: 1px solid #e6c76a;
+    border-radius: 12px;
+    background: #fff8df;
+    color: #6b4f00;
+    text-align: center;
+    font-size: 17px;
+}
+
+        /* =========================
+           BASIC RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: "Noto Serif Bengali", serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fffdf8,
+                    #fff8e8
+                );
+
+            color: #4a3a20;
+
+            min-height: 100vh;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+
+            width: 100%;
+
+            min-height: 82px;
+
+            background: #ffffff;
+
+            border-bottom: 1px solid #e6c76a;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            box-shadow:
+                0 3px 15px
+                rgba(180, 140, 30, 0.08);
+        }
+
+
+        /* Logo */
+
+        .logo {
+
+            color: #b8860b;
+
+            font-size: 28px;
+
+            font-weight: 700;
+
+            white-space: nowrap;
+        }
+
+
+        /* Arabic */
+
+        .nav-arabic {
+
+            direction: rtl;
+
+            font-family: "Amiri", serif;
+
+            color: #8b6508;
+
+            font-size: 21px;
+
+            font-weight: 700;
+
+            text-align: center;
+
+            flex: 1;
+
+            margin: 0 30px;
+        }
+
+
+        /* Navigation Links */
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 28px;
+        }
+
+
+        .nav-links a {
+
+            color: #6d531b;
+
+            font-size: 17px;
+
+            font-weight: 700;
+
+            transition: 0.25s;
+        }
+
+
+        .nav-links a:hover {
+
+            color: #b8860b;
+
+            transform: translateY(-1px);
+        }
+
+
+        /* Registration Button */
+
+        .nav-links .signup-link {
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #b8860b,
+                    #d4af37
+                );
+
+            color: white;
+
+            padding: 12px 22px;
+
+            border-radius: 13px;
+
+            box-shadow:
+                0 6px 15px
+                rgba(184, 134, 11, 0.20);
+        }
+
+
+        .nav-links .signup-link:hover {
+
+            color: white;
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 9px 20px
+                rgba(184, 134, 11, 0.28);
+        }
+
+
+        /* =========================
+           HERO SECTION
+        ========================= */
+
+        .hero {
+
+            min-height: 575px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            padding: 70px 20px 80px;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    #fffdf5 0%,
+                    #fff9ea 45%,
+                    #fffdf9 100%
+                );
+        }
+
+
+        .hero-content {
+
+            width: 100%;
+
+            max-width: 1000px;
+
+            margin: auto;
+        }
+
+
+        /* Ring */
+
+        .ring {
+
+            width: 88px;
+
+            height: 88px;
+
+            margin: 0 auto 25px;
+
+            border-radius: 50%;
+
+            background: #fff8df;
+
+            border: 1px solid #e6c76a;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-size: 48px;
+
+            box-shadow:
+                0 10px 30px
+                rgba(184, 134, 11, 0.10);
+        }
+
+
+        /* Hero Title */
+
+        .hero h1 {
+
+            color: #a87500;
+
+            font-size: 55px;
+
+            line-height: 1.4;
+
+            font-weight: 700;
+
+            margin-bottom: 18px;
+        }
+
+
+        /* Hero Description */
+
+        .hero p {
+
+            max-width: 850px;
+
+            margin: 0 auto;
+
+            color: #776548;
+
+            font-size: 21px;
+
+            line-height: 1.9;
+        }
+
+
+        /* Hero Buttons */
+
+        .hero-buttons {
+
+            margin-top: 35px;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 20px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .btn {
+
+            display: inline-block;
+
+            min-width: 230px;
+
+            padding: 16px 25px;
+
+            border-radius: 14px;
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+            transition: 0.25s;
+        }
+
+
+        /* Primary Button */
+
+        .btn-primary {
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #b8860b,
+                    #d4af37
+                );
+
+            color: white;
+
+            box-shadow:
+                0 9px 22px
+                rgba(184, 134, 11, 0.23);
+        }
+
+
+        .btn-primary:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 13px 27px
+                rgba(184, 134, 11, 0.30);
+        }
+
+
+        /* Secondary Button */
+
+        .btn-secondary {
+
+            background: white;
+
+            color: #a87500;
+
+            border: 1px solid #d8b54d;
+        }
+
+
+        .btn-secondary:hover {
+
+            background: #fff9e8;
+
+            transform: translateY(-3px);
+        }
+
+
+        /* =========================
+           FEATURES
+        ========================= */
+
+        .features {
+
+            background: #ffffff;
+
+            padding: 75px 7% 90px;
+
+            text-align: center;
+        }
+
+
+        .section-title {
+
+            color: #a87500;
+
+            font-size: 38px;
+
+            margin-bottom: 45px;
+
+            font-weight: 700;
+        }
+
+
+        .feature-grid {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .feature-card {
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #fffdf8,
+                    #fff8e8
+                );
+
+            border: 1px solid #ead28b;
+
+            border-radius: 20px;
+
+            padding: 35px 25px;
+
+            transition: 0.3s;
+
+            box-shadow:
+                0 8px 25px
+                rgba(180, 140, 30, 0.08);
+        }
+
+
+        .feature-card:hover {
+
+            transform: translateY(-7px);
+
+            box-shadow:
+                0 15px 35px
+                rgba(180, 140, 30, 0.14);
+        }
+
+
+        .feature-icon {
+
+            width: 70px;
+
+            height: 70px;
+
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+
+            background: #fff8df;
+
+            border: 1px solid #e6c76a;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-size: 32px;
+        }
+
+
+        .feature-card h3 {
+
+            color: #9b710b;
+
+            font-size: 22px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .feature-card p {
+
+            color: #776548;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           ARABIC SECTION
+        ========================= */
+
+        .arabic-section {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff8e6,
+                    #fffdf7
+                );
+
+            text-align: center;
+
+            padding: 70px 20px;
+        }
+
+
+        .arabic-title {
+
+            direction: rtl;
+
+            font-family: "Amiri", serif;
+
+            color: #a87500;
+
+            font-size: 38px;
+
+            font-weight: 700;
+
+            margin-bottom: 15px;
+        }
+
+
+        .arabic-text {
+
+            direction: rtl;
+
+            font-family: "Amiri", serif;
+
+            color: #776548;
+
+            font-size: 22px;
+
+            line-height: 2;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            background: #fffaf0;
+
+            border-top: 1px solid #ead28b;
+
+            text-align: center;
+
+            padding: 25px 20px;
+
+            color: #806b48;
+
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .navbar {
+
+                flex-direction: column;
+
+                padding: 18px 20px;
+
+                gap: 13px;
+            }
+
+
+            .nav-arabic {
+
+                order: 2;
+
+                margin: 0;
+
+                font-size: 19px;
+            }
+
+
+            .logo {
+
+                order: 1;
+
+                font-size: 25px;
+            }
+
+
+            .nav-links {
+
+                order: 3;
+
+                gap: 18px;
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+
+            .feature-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .hero h1 {
+
+                font-size: 40px;
+            }
+
+
+            .hero p {
+
+                font-size: 18px;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            .hero {
+
+                padding: 55px 18px 65px;
+            }
+
+
+            .hero h1 {
+
+                font-size: 31px;
+
+                line-height: 1.5;
+            }
+
+
+            .hero p {
+
+                font-size: 16px;
+
+                line-height: 1.8;
+            }
+
+
+            .ring {
+
+                width: 75px;
+
+                height: 75px;
+
+                font-size: 40px;
+            }
+
+
+            .section-title {
+
+                font-size: 30px;
+            }
+
+
+            .arabic-title {
+
+                font-size: 30px;
+            }
+
+
+            .arabic-text {
+
+                font-size: 19px;
+            }
+
+
+            .btn {
+
+                width: 100%;
+
+                min-width: auto;
+            }
+
+
+            .hero-buttons {
+
+                width: 100%;
+            }
+
+
+            .nav-links {
+
+                gap: 12px;
+            }
+
+
+            .nav-links a {
+
+                font-size: 15px;
+            }
+
+
+            .nav-links .signup-link {
+
+                padding: 10px 15px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+    {% if messages %}
+    {% for message in messages %}
+        <div class="message">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+    <!-- =========================
+         NAVIGATION BAR
+    ========================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            💍 Marriage Media
+        </div>
+
+
+        <div class="nav-arabic">
+            مرحبًا بكم في موقع الزواج
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="{% url 'home' %}">
+                হোম
+            </a>
+
+
+            <a href="/login/">
+                লগইন
+            </a>
+
+
+            <a href="{% url 'signup' %}" class="signup-link">
+                রেজিস্ট্রেশন
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HERO SECTION
+    ========================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="ring">
+                💍
+            </div>
+
+
+            <h1>
+                আপনার জীবনসঙ্গী খুঁজে নিন
+            </h1>
+
+
+            <p>
+                Marriage Media আপনাকে একজন উপযুক্ত ও বিশ্বস্ত
+                জীবনসঙ্গী খুঁজে পাওয়ার যাত্রায় সাহায্য করবে।
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a href="{% url 'signup' %}"
+                   class="btn btn-primary">
+
+                    💍 ফ্রি রেজিস্ট্রেশন
+
+                </a>
+
+
+                <a href="/login/"
+                   class="btn btn-secondary">
+
+                    🔐 লগইন করুন
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FEATURES
+    ========================= -->
+
+    <section class="features">
+
+        <h2 class="section-title">
+            কেন Marriage Media?
+        </h2>
+
+
+        <div class="feature-grid">
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    👤
+                </div>
+
+                <h3>
+                    সহজ রেজিস্ট্রেশন
+                </h3>
+
+                <p>
+                    কয়েকটি সহজ ধাপে আপনার প্রোফাইল
+                    তৈরি করুন এবং আপনার যাত্রা শুরু করুন।
+                </p>
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🔍
+                </div>
+
+                <h3>
+                    উপযুক্ত সঙ্গী খুঁজুন
+                </h3>
+
+                <p>
+                    আপনার পছন্দ ও প্রয়োজন অনুযায়ী
+                    জীবনসঙ্গী খুঁজে নিন।
+                </p>
+
+            </div>
+
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    🔒
+                </div>
+
+                <h3>
+                    নিরাপদ ও ব্যক্তিগত
+                </h3>
+
+                <p>
+                    আপনার ব্যক্তিগত তথ্যের গোপনীয়তাকে
+                    সর্বোচ্চ গুরুত্ব দেওয়া হয়।
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ARABIC SECTION
+    ========================= -->
+
+    <section class="arabic-section">
+
+        <h2 class="arabic-title">
+            ابحث عن شريك حياتك
+        </h2>
+
+
+        <p class="arabic-text">
+            نساعدك في العثور على شريك حياة مناسب
+            لبناء مستقبل جميل معًا
+        </p>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Marriage Media —
+            ভালোবাসার সুন্দর সম্পর্কের শুরু এখান থেকেই।
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
