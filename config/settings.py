@@ -6,7 +6,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# প্রোডাকশনের জন্য সিক্রেট কী এনভায়রনমেন্ট ভেরিয়েবল থেকে নেয়া ভালো, অন্যথায় ডিফল্ট কি ব্যবহার হবে
 SECRET_KEY = os.environ.get(
     "DJANGO_SECRET_KEY", 
     "django-insecure-marriage-media-development-key-12345"
@@ -14,17 +13,11 @@ SECRET_KEY = os.environ.get(
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# প্রোডাকশনে এটি False রাখুন। প্রয়োজন হলে পরিবেশ অনুযায়ী বদলাতে পারেন:
 DEBUG = os.environ.get("DJANGO_DEBUG", "False").lower() == "true"
 
 
 # আপনার ডোমেইন নাম বা সার্ভার IP এড্রেসগুলো এখানে যুক্ত করুন
-ALLOWED_HOSTS = [
-    "yourdomain.com",
-    "www.yourdomain.com",
-    "127.0.0.1",
-    "localhost",
-]
+ALLOWED_HOSTS = ['dream-marriage-media.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -43,6 +36,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # Render-এ CSS/JS সঠিকভাবে লোড হওয়ার জন্য
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -118,7 +112,7 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
-# প্রোডাকশন সার্ভারে python manage.py collectstatic চালানোর সময় ফাইল জমার লোকেশন
+# প্রোডাকশন সার্ভারে python manage.py collectstatic চালানোর সময় ফাইল জমার লোকেশন
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 
