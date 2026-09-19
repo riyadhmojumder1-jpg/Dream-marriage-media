@@ -16,8 +16,14 @@ SECRET_KEY = os.environ.get(
 DEBUG = os.environ.get("DJANGO_DEBUG", "False").lower() == "true"
 
 
-# আপনার ডোমেইন নাম বা সার্ভার IP এড্রেসগুলো এখানে যুক্ত করুন
-ALLOWED_HOSTS = ['dream-marriage-media.onrender.com', 'localhost', '127.0.0.1']
+# Render-এর সকল ডোমেন ও সাবডোমেন সমর্থন করার জন্য
+ALLOWED_HOSTS = [
+    'dream-marriage-media.onrender.com',
+    '.onrender.com',
+    'localhost',
+    '127.0.0.1',
+    '*'
+]
 
 
 # Application definition
@@ -36,7 +42,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",  # Render-এ CSS/JS সঠিকভাবে লোড হওয়ার জন্য
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # Render-এ CSS/JS ফাইল সঠিকভাবে পাওয়ার জন্য
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -114,6 +120,9 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # প্রোডাকশন সার্ভারে python manage.py collectstatic চালানোর সময় ফাইল জমার লোকেশন
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
+# WhiteNoise স্ট্যাটিক ফাইল হ্যান্ডলিং
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 
 # Default primary key field type
