@@ -17,12 +17,7 @@ DEBUG = os.environ.get("DJANGO_DEBUG", "False").lower() == "true"
 
 
 # Render ও Localhost-এর সকল ডোমেন সমর্থন করার জন্য
-ALLOWED_HOSTS = [
-    "*",
-    "dream-marriage-media.onrender.com",
-    "localhost",
-    "127.0.0.1",
-]
+ALLOWED_HOSTS = ['*']
 
 # CSRF verification এবং SSL Proxy হ্যান্ডলিং
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -48,7 +43,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",  # Render-এ CSS/JS ফাইল সঠিকভাবে পাওয়ার জন্য
+    "whitenoise.middleware.WhiteNoiseMiddleware",  # Render-এ CSS/JS ফাইল সঠিকভাবে পাওয়ার জন্য
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -124,7 +119,7 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
-# প্রোডাকশন সার্ভারে python manage.py collectstatic চালানোর সময় ফাইল জমার লোকেশন
+# প্রোডাকশন সার্ভারে python manage.py collectstatic চালানোর সময় ফাইল জমার লোকেশন
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # WhiteNoise স্ট্যাটিক ফাইল হ্যান্ডলিং
